@@ -1,3 +1,21 @@
+/* -----------------------------------------------------------------------------
+  Notes: Some things I noticed that are different from the actual Google.
+    1. My overall page height is not 100vh, even though that's what my body is
+      set to, and try as I might, I can't figure out wherethe extra pixels are
+      coming from.
+    2. The underlines that appear on hover do not match up with the links.
+      I know this could be fixed if I increased the padding on the <a> tags,
+      but I think I understand the idea and this is the second time I've
+      started from scratch on this, so fuck it. (you
+      notice it more on the footer, because for some reason I gave the
+      header links top and bottom padding...)
+    3.The transitions applied to the search input/logo on the real
+      Google are much smoother (slower?) than mine. I'm not entirely sure how
+      they achieved this affect as I don't know much about CSS animations, yet.
+ -----------------------------------------------------------------------------*/
+
+/* GLOBAL
+  ------- */
 html {
   font-size: 62.5%;
 }
@@ -12,21 +30,15 @@ html {
   --gray-700: rgb(55, 65, 81);
   --gray-800: rgb(31, 41, 55);
   --gray-900: rgb(17, 24, 39);
-  --red-200: rgb(254, 202, 202);
-  --yellow-200: rgb(253, 230, 138);
-  --green-200: rgb(167, 243, 208);
-  --blue-200: rgb(191, 219, 254);
-  --google-topbar-font: #575757;
+  --google-header-font: #575757;
   --google-footer: #f2f2f2;
   --google-footer-border: #dadce0;
   --google-footer-font: #767a7f;
   --google-btn-backgroung: #f8f9fa;
   --google-btn-outline: rgb(36, 101, 196);
-
   box-sizing: border-box;
   margin: 0;
   text-decoration: none;
-  /* transition: all 300ms ease-in-out; */
 }
 
 p, h1, h2, h3, h4, h5, h6, a, li {
@@ -34,42 +46,37 @@ p, h1, h2, h3, h4, h5, h6, a, li {
 }
 
 /* PRIMARY LAYOUT
-  ---------------*/
-
+  --------------- */
 body {
   display: flex;
   flex-flow: column nowrap;
   height: 100vh;
 }
 
-.topBar {
-  /* background: var(--red-200); */
+header {
   display: flex;
   flex-flow: row nowrap;
   flex-shrink: 0;
   height: 50px;
-  font-size: 1.3rem;
+  userIcon font-size: 1.3rem;
 }
 
 main {
-  /* background: var(--yellow-200); */
   display: flex;
   flex-flow: column nowrap;
-  flex: 1 1 auto;
+  flex: 1 0 auto;
 }
 
 footer {
-  /* background: var(--green-200); */
   display: flex;
   flex-flow: row nowrap;
   height: 40px;
-
   background: var(--google-footer);
   border-top: 1px solid var(--google-footer-border);
 }
 
 /* SECONDARY LAYOUT
-  -----------------*/
+  ----------------- */
 .logoContainer {
   margin: 0 auto;
   margin-top: 15rem;
@@ -110,29 +117,49 @@ footer {
   justify-content: flex-end;
 }
 
-/* MODULES
-  --------*/
-.topBarItem {
+/* TERTIARY LAYOUT
+  --------------- */
+.headerItem {
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 100%;
   margin: auto 1rem;
   font-size: 1.3rem;
 }
 
-.topBarItem a {
+.headerItem:first-of-type {
+  margin-left: 2rem;
+}
+
+.headerItem a {
   padding: 1rem 0;
   margin: auto 0;
   color: var(--gray-700);
 }
 
-.topBarIcon * {
-  margin: auto;
-  color: var(--gray-500);
-}
-
 .storeItem {
   margin-right: auto;
+}
+
+.headerIconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerIcon:first-child {
+  margin: auto 1rem;
+}
+
+.headerIcon:last-child {
+  margin: auto 2rem auto 0;
+}
+
+/* STYLES
+  -------- */
+.headerItem:hover {
+  text-decoration: underline var(--gray-800);
 }
 
 .searchInputContainer {
@@ -142,7 +169,7 @@ footer {
   border-radius: 20px;
 }
 
-.searchInput:hover {
+.searchInputContainer:hover {
   box-shadow: 1px 1px 4px var(--gray-300);
 }
 
@@ -154,7 +181,8 @@ footer {
   height: 42px;
   width: 100%;
   margin: auto 1.5rem auto 0;
-  border: none;;
+  border: none;
+  ;
   outline: none;
 }
 
@@ -166,7 +194,7 @@ footer {
   border-radius: 5px;
 }
 
-.btn + .btn {
+.btn+.btn {
   margin-left: 1.1rem;
 }
 
@@ -187,19 +215,28 @@ footer {
   padding: 1.2rem 0;
 }
 
+.footerItem:hover {
+  text-decoration: underline 1px var(--gray-500);
+}
+
 .footerItem a {
-  color: var(--google-topbar-font);
+  color: var(--google-header-font);
 }
 
 /* IMAGES
-  -------*/
-
+  ------- */
 .dropDownIcon {
-  height: 30px;
+  height: 26px;
+  color: var(--gray-500);
 }
 
 .userIcon {
-  height: 30px;
+  height: 38px;
+  color: var(--gray-500);
+}
+
+.headerIcon *:hover {
+  color: var(--gray-700);
 }
 
 .logo {
@@ -217,13 +254,12 @@ footer {
   margin: auto 0;
 }
 
-/* MEDIA QUERIES */
-
+/* MEDIA QUERIES
+  -------------- */
 @media (max-width: 801px) {
   footer {
     flex-flow: column nowrap;
     height: 120px;
-
     transition: all 40ms ease-in-out;
   }
 
