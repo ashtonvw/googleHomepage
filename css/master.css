@@ -1,0 +1,281 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  --gray-100: rgb(243, 244, 246);
+  --gray-200: rgb(229, 231, 235);
+  --gray-300: rgb(209, 213, 219);
+  --gray-400: rgb(156, 163, 175);
+  --gray-500: rgb(107, 114, 128);
+  --gray-600: rgb(75, 85, 99);
+  --gray-700: rgb(55, 65, 81);
+  --gray-800: rgb(31, 41, 55);
+  --gray-900: rgb(17, 24, 39);
+  --red-200: rgb(254, 202, 202);
+  --yellow-200: rgb(253, 230, 138);
+  --green-200: rgb(167, 243, 208);
+  --blue-200: rgb(191, 219, 254);
+  --google-topbar-font: #575757;
+  --google-footer: #f2f2f2;
+  --google-footer-border: #dadce0;
+  --google-footer-font: #767a7f;
+  --google-btn-backgroung: #f8f9fa;
+  --google-btn-outline: rgb(36, 101, 196);
+
+  box-sizing: border-box;
+  margin: 0;
+  text-decoration: none;
+  /* transition: all 300ms ease-in-out; */
+}
+
+p, h1, h2, h3, h4, h5, h6, a, li {
+  font-family: arial, sans-serif;
+}
+
+/* PRIMARY LAYOUT
+  ---------------*/
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+}
+
+.topBar {
+  /* background: var(--red-200); */
+  display: flex;
+  flex-flow: row nowrap;
+  flex-shrink: 0;
+  height: 50px;
+  font-size: 1.3rem;
+}
+
+main {
+  /* background: var(--yellow-200); */
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+}
+
+footer {
+  /* background: var(--green-200); */
+  display: flex;
+  flex-flow: row nowrap;
+  height: 40px;
+
+  background: var(--google-footer);
+  border-top: 1px solid var(--google-footer-border);
+}
+
+/* SECONDARY LAYOUT
+  -----------------*/
+.logoContainer {
+  margin: 0 auto;
+  margin-top: 15rem;
+  transition: all 300ms ease-in-out;
+}
+
+.searchContainer {
+  margin: 2.5rem auto auto auto;
+  transition: all 300ms ease-in-out;
+}
+
+.btnContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.footerContainer {
+  display: flex;
+}
+
+.footerleftSide {
+  margin-left: 1.5rem;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.footerCenter {
+  margin: 0 auto;
+  flex: 1;
+  justify-content: center;
+}
+
+.footerRightSide {
+  margin-right: 1.5rem;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* MODULES
+  --------*/
+.topBarItem {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  margin: auto 1rem;
+  font-size: 1.3rem;
+}
+
+.topBarItem a {
+  padding: 1rem 0;
+  margin: auto 0;
+  color: var(--gray-700);
+}
+
+.topBarIcon * {
+  margin: auto;
+  color: var(--gray-500);
+}
+
+.storeItem {
+  margin-right: auto;
+}
+
+.searchInputContainer {
+  width: max(484px);
+  display: flex;
+  border: 1px solid var(--google-footer-border);
+  border-radius: 20px;
+}
+
+.searchInput:hover {
+  box-shadow: 1px 1px 4px var(--gray-300);
+}
+
+.searchBoxShadow {
+  box-shadow: 1px 1px 4px var(--gray-300);
+}
+
+[type='search'] {
+  height: 42px;
+  width: 100%;
+  margin: auto 1.5rem auto 0;
+  border: none;;
+  outline: none;
+}
+
+.btn {
+  width: 127px;
+  height: 36px;
+  background: var(--google-btn-backgroung);
+  border: none;
+  border-radius: 5px;
+}
+
+.btn + .btn {
+  margin-left: 1.1rem;
+}
+
+.btn:hover {
+  border: 1px solid var(--google-footer-border);
+  box-shadow: 0 1px 1px var(--gray-300);
+}
+
+.btn:active {
+  box-shadow: 0 0 1px 1px var(--google-btn-outline);
+}
+
+.footerItem {
+  height: auto;
+  margin: auto 1rem;
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  padding: 1.2rem 0;
+}
+
+.footerItem a {
+  color: var(--google-topbar-font);
+}
+
+/* IMAGES
+  -------*/
+
+.dropDownIcon {
+  height: 30px;
+}
+
+.userIcon {
+  height: 30px;
+}
+
+.logo {
+  transition: all 300ms ease-in-out;
+}
+
+.searchIcon {
+  height: 18px;
+  margin: auto .4rem auto 1.3rem;
+  color: var(--gray-500);
+}
+
+.leafIcon {
+  height: 15px;
+  margin: auto 0;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 801px) {
+  footer {
+    flex-flow: column nowrap;
+    height: 120px;
+
+    transition: all 40ms ease-in-out;
+  }
+
+  .footerContainer {
+    justify-content: center;
+  }
+
+  .footerRightSide {
+    order: 2;
+  }
+
+  .footerCenter {
+    order: 1;
+  }
+
+  .footerleftSide {
+    order: 3;
+  }
+}
+
+@media (max-height: 745px) {
+  main {
+    transition: all 300ms ease-in-out;
+  }
+
+  .logoContainer {
+    margin-top: 11rem;
+  }
+}
+
+@media (max-height: 531px) {
+  main {
+    transition: all 300ms ease-in-out;
+  }
+
+  .searchContainer {
+    margin: 1.5rem auto auto auto;
+    transition: all 300ms ease-in-out;
+  }
+
+  .logoContainer {
+    margin-top: 0;
+    transition: all 300ms ease-in-out;
+  }
+
+  .logo {
+    width: 212px;
+    padding-top: 10px;
+    transition: all 300ms ease-in-out;
+  }
+
+  .btnContainer {
+    margin-bottom: 5rem;
+  }
+}
